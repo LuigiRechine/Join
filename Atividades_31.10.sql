@@ -50,7 +50,7 @@ select * from dependente;
 #Atividades - 01
 select f.nome as nome_funcionario, count(d.id) as qtd_dependentes
 from funcionario f
-join dependente d 
+inner join dependente d 
 on f.id = d.id_funcionario
 group by f.nome
 having count(d.id) >= 2;
@@ -58,9 +58,9 @@ having count(d.id) >= 2;
 #Atividades - 02
 select d.nome as departamento, f.nome as funcionario
 from departamento d
-join funcionario f 
+inner join funcionario f 
 on d.id = f.id_departamento
-order by f.nome asc;
+order by f.nome;
 
 #Atividades - 03
 select f.nome as funcionario, d.nome as dependente
@@ -71,7 +71,7 @@ on f.id = d.id_funcionario;
 #Atividades - 04
 select d.nome as departamento, avg(f.salario) as media_salarial
 from departamento d
-join funcionario f 
+inner join funcionario f 
 on d.id = f.id_departamento
 group by d.nome;
 
@@ -88,6 +88,6 @@ from funcionario;
 #Atividades - 07
 select d.nome as departamento, sum(f.salario) as custo_mensal
 from departamento d
-left join funcionario f 
+inner join funcionario f 
 on d.id = f.id_departamento
 group by d.nome;
